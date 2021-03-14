@@ -1,0 +1,2 @@
+global:0,0:558
+resources/maps/testmap3.cmf:256,144:86

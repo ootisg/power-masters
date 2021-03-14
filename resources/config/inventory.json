@@ -1,0 +1,50 @@
+{
+"background":"resources/sprites/itemui.png",
+"tabs": [
+	{
+		"name":"Weapons",
+		"icon":"resources/sprites/weapon_icon.png",
+		"capacity":24,
+		"type":"cell",
+		"bounds":[0,0,16,16]
+	},
+	{
+		"name":"Equipment",
+		"icon":"resources/sprites/equipment_icon.png",
+		"capacity":24,
+		"type":"cell",
+		"bounds":[0,16,16,16]
+	},
+	{
+		"name":"Consumables",
+		"icon":"resources/sprites/consumable_icon.png",
+		"capacity":24,
+		"type":"cell",
+		"bounds":[0,32,16,16]
+	},
+	{
+		"name":"Materials",
+		"icon":"resources/sprites/material_icon.png",
+		"capacity":24,
+		"type":"cell",
+		"bounds":[0,48,16,16]
+	},
+	{
+		"name":"Spells",
+		"icon":"resources/sprites/spell_icon.png",
+		"capacity":24,
+		"type":"cell",
+		"type":"cell",
+		"bounds":[0,64,16,16]
+	}
+],
+"layouts": {
+	"default":[
+		{
+			"type":"grid",
+			"bounds":[16,16,96,64],
+			"cells":[16,16]
+		}
+	]
+}
+}
