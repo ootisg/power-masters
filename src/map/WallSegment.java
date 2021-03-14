@@ -86,9 +86,14 @@ public class WallSegment extends GameObject {
 	@Override
 	public void draw () {
 		
+		//Get the view offset for drawing
+		int viewX = getRoom ().getViewX ();
+		int viewY = getRoom ().getViewY ();
+		
+		//Draw the line
 		Graphics g = MainLoop.getWindow ().getBufferGraphics ();
 		g.setColor (new Color (0x000000));
-		g.drawLine ((int)sx, (int)sy, (int)ex, (int)ey);
+		g.drawLine ((int)sx - viewX, (int)sy - viewY, (int)ex - viewX, (int)ey - viewY);
 		
 	}
 	

@@ -3,8 +3,10 @@ package main;
 import java.io.FileNotFoundException;
 
 import gameObjects.GlobalSave;
+import gameObjects.Player;
 import gameObjects.TestObj;
 import gui.MapScreen;
+import gui.MapUi;
 import gui.TitleScreen;
 import map.CollisionMesh;
 import map.WallSegment;
@@ -22,9 +24,6 @@ public class GameCode extends GameAPI {
 		MainLoop.getWindow ().setResolution (1024, 576);
 		MainLoop.getWindow ().setSize (1024, 576);
 		
-		//Make the gui components
-		//getGui ().addComponent (new TitleScreen ());
-		
 		//Load the room
 		try {
 			getRoom ().loadRMF ("resources/maps/map_1.rmf");
@@ -33,9 +32,16 @@ public class GameCode extends GameAPI {
 			e.printStackTrace();
 		}
 		
-		new TestObj (16, 16).declare (0, 0);
+		//Make the gui components
+		getGui ().addComponent (new MapUi ());
+		
+		//Make the player
+		Player p = new Player ();
+		p.setCollisionMesh (new CollisionMesh ("resources/collision/test_walls.json"));
+		p.declare (64, 64);
 		
 	}
+	
 	public void gameLoop () {
 		getRoom ().frameEvent ();
 		//Saveable.printSaves ();

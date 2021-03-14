@@ -1,9 +1,6 @@
 package vector;
 
 import main.GameObject;
-import util.Vector2D;
-import util.Vector3D;
-import util.Vector4D;
 
 public class Vector2D {
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import resources.AnimationHandler;
 import resources.Sprite;
+import vector.Vector2D;
 
 public abstract class GameObject extends GameAPI implements Comparable<GameObject> {
 	protected int[] matrixLocation;
@@ -51,6 +52,10 @@ public abstract class GameObject extends GameAPI implements Comparable<GameObjec
 		yprevious = this.y;
 		this.x = x;
 		this.y = y;
+	}
+	public void move (Vector2D v) {
+		this.setX (getX () + v.x);
+		this.setY (getY () + v.y);
 	}
 	public boolean isInBounds () {
 		//Returns true if this GameObject is in bounds of the room

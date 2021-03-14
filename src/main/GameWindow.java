@@ -178,7 +178,6 @@ public class GameWindow extends JFrame {
 			if (bufferGraphics != null) {
 				Console console = MainLoop.getConsole ();
 				if (!console.isEnabled ()) {
-					bufferGraphics.drawRect (getMouseX (), getMouseY (), 2, 2);
 					if (rasterMode != 0) {
 						bufferRaster.setDataElements (0, 0, rasterImage.getWidth (), rasterImage.getHeight (), imageData);
 					}
@@ -203,7 +202,7 @@ public class GameWindow extends JFrame {
 					}
 				} else {
 					console.render ();
-					g.drawImage (bufferImage, insets.left, insets.top, this.getContentPane ().getWidth (), this.getContentPane ().getHeight (), null);
+					g.drawImage (bufferImage, insets.left, insets.top, this.getContentPane ().getWidth (), this.getContentPane ().getHeight (), null);					
 				}
 			}
 		}
