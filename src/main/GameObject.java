@@ -53,6 +53,11 @@ public abstract class GameObject extends GameAPI implements Comparable<GameObjec
 		this.x = x;
 		this.y = y;
 	}
+	public void setPositionByCenter (double x, double y) {
+		double xdiff = getCenterX () - getX ();
+		double ydiff = getCenterY () - getY ();
+		setPosition (x - xdiff, y - ydiff);
+	}
 	public void move (Vector2D v) {
 		this.setX (getX () + v.x);
 		this.setY (getY () + v.y);

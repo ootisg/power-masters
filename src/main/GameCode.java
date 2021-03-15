@@ -2,6 +2,7 @@ package main;
 
 import java.io.FileNotFoundException;
 
+import enemies.Fingree;
 import gameObjects.GlobalSave;
 import gameObjects.Player;
 import gameObjects.TestObj;
@@ -39,6 +40,9 @@ public class GameCode extends GameAPI {
 		Player p = new Player ();
 		p.setCollisionMesh (new CollisionMesh ("resources/collision/test_walls.json"));
 		p.declare (64, 64);
+		
+		Fingree f = new Fingree ();
+		f.declare (256, 256);
 		
 	}
 	

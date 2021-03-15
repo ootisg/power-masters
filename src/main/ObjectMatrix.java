@@ -172,6 +172,7 @@ public class ObjectMatrix {
 		checkPackages.add ("gameObjects");
 		checkPackages.add ("puzzle");
 		checkPackages.add ("items");
+		checkPackages.add ("enemies");
 	}
 	public static GameObject makeInstance (String objectType) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		Class<?> objClass = null;

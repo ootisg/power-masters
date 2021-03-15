@@ -1,8 +1,11 @@
 package gameObjects;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
+import enemies.Enemy;
 import main.GameObject;
+import main.MainLoop;
 import map.CollisionMesh;
 import vector.Vector2D;
 import visualEffects.ParticleMaker;
@@ -65,9 +68,36 @@ public class Player extends GameObject {
 		v.scale (5);
 		move (v);
 		
-		//Check for collision with walls, etc.
+		//Check for collision with walls
 		if (walls != null && walls.isColliding (this)) {
 			backstep ();
+		}
+		
+		//Check for collision with enemies
+		Enemy targeted = null;
+		ArrayList<GameObject> enemies = MainLoop.getObjectMatrix ().getAll (Enemy.class);
+		for (int i = 0; i < enemies.size (); i++) {
+			Enemy curr = (Enemy)enemies.get (i);
+			Vector2D offs = new Vector2D (getCenterX () - curr.getCenterX (), getCenterY () - curr.getCenterY ());
+			if (offs.getLength () < curr.getSize ()) {
+				
+				//Move the player outside of the enemy
+				offs.normalize ();
+				offs.scale (curr.getSize ());
+				setPositionByCenter (curr.getCenterX (), curr.getCenterY ());
+				move (offs);
+				
+				//Allow for attacking
+				targeted = curr;
+				
+			}
+		}
+		
+		//Attack the enemy
+		if (targeted != null) {
+			if (this.mouseButtonReleased (1)) {
+				targeted.damage (5);
+			}
 		}
 		
 	}
