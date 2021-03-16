@@ -16,6 +16,8 @@ public class Player extends GameObject {
 	
 	private CollisionMesh walls;
 	
+	private Attack currentAttack;
+	
 	public Player () {
 		
 		setPersistent (true);
@@ -94,9 +96,10 @@ public class Player extends GameObject {
 		}
 		
 		//Attack the enemy
-		if (targeted != null) {
+		if (targeted != null && (currentAttack == null || !currentAttack.isDeclared ())) {
 			if (this.mouseButtonReleased (1)) {
-				targeted.damage (5);
+				currentAttack = new RegularAttack (targeted);
+				currentAttack.declare (targeted.getX (), targeted.getY ());
 			}
 		}
 		
